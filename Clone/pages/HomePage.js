@@ -1,6 +1,6 @@
 // HomePage.js
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, Image } from 'react-native';
 
 const HomePage = () => {
   return (
@@ -24,15 +24,36 @@ const HomePage = () => {
 
             </TextInput>
 
- 
-
-        </View>
-        <TouchableOpacity
+            <TouchableOpacity
             style={styles.button}>
                 <Text style={styles.buttonText}>Log in</Text>
 
         </TouchableOpacity>
 
+       
+        <Text style={styles.line}> ───────  Or continue with  ───────</Text>
+       
+        
+        <View style={styles.icons}>
+            <TouchableOpacity style={styles.icons}>
+                <Image source={require('../assets/Apple.png')}/>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.icons}>
+            <Image source={require('../assets/google.png')}/>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.icons}>
+            <Image source={require('../assets/facebook.png')}/>
+            </TouchableOpacity>
+        </View>
+
+        <View style={styles.icons}>
+        <Text>Haven't an account?</Text>
+        <TouchableOpacity>
+            <Text style={styles.register}>Register</Text>
+        </TouchableOpacity>
+        </View>
+
+        </View>
 
         </View>
 
@@ -52,6 +73,7 @@ const styles = StyleSheet.create({
   overview:{
     paddingLeft: 12,
     paddingRight: 12,
+    
   },
   headerText:{
     flex:1,
@@ -101,6 +123,18 @@ buttonText:{
     fontSize: 16,
 },
 
+line:{
+    marginTop: 40,
+    color: '#AFB0B6'
+},
+icons: {
+    marginTop:7,
+    flexDirection: 'row',
+    justifyContent: 'center'
+},
+register:{
+    color: '#356899'
+}
 
 });
 
