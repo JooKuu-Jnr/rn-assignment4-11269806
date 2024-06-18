@@ -1,12 +1,49 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
-import { TextInput } from 'react-native-gesture-handler';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground} from 'react-native'
+import { FlatList, ScrollView, TextInput } from 'react-native-gesture-handler';
+import Card from '../components/Card';
+import Cardp from '../components/Cardp';
+import Data from '../Data1.json';
+import Dataa from '../Data2.json';
+
+
 
 
 const Homepage = ({route}) => {
     const { username, email } = route.params;
+
+    const [data, setData] = useState(Data); 
+    const [dataa, setDataa] = useState(Dataa); 
+    
+    const getLogoSource = (company) => {
+      switch (company) {
+        case 'Facebook':
+          return require('../assets/fb.png');
+        case 'Google':
+          return require('../assets/g.png');
+        
+        default:
+          return require('../assets/fb.png'); // A default logo if no match is found
+      }
+    };
+      const getLogo2Source = (Comp) => {
+        switch (Comp) {
+          case 'Burger King':
+            return require('../assets/burger.png');
+          case 'Google Shop':
+            return require('../assets/google2.jpg');
+          case 'Costco Mart':
+              return require('../assets/beats.png');
+          
+          default:
+            return require('../assets/burger.png'); // A default logo if no match is found
+        }
+    };
   return (
     <View style={styles.container}>
+      <ScrollView
+      showsVerticalScrollIndicator={false}
+      >
 
       <View style={styles.overview}>
         <View style={styles.info}>
@@ -41,75 +78,55 @@ const Homepage = ({route}) => {
               <Text style={styles.h2}>See all</Text>
             </TouchableOpacity>
         </View>
+       
+        
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <Card 
+              profession={item.Profession}
+              Logo={getLogoSource(item.Company)}
+              Company={item.Company} 
+              Salary={item.Salary}
+              Address={item.Address}
+              backgroundColor={item.backgroundColor}
+            />
+          )}
+          keyExtractor={item => item.id.toString()} 
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ gap: 10, paddingHorizontal: 12 }}
+        />
 
-        <View style={styles.cards}>
-            <View style={styles.subCard}>
-              <View style={styles.cardTop}>
-                <View style={styles.iconHolder}>
-                  <Image
-                    style={styles.fb}
-                    source={require("../assets/fb.png")}
-                  />
-                </View>
 
-                <View style={styles.cardTopText}>
-                  <Text style={styles.cardH1}>Software Engineer</Text>
-                  <Text style={styles.cardH2}>Facebook</Text>
-                </View>
-              </View>
 
-              <View style={styles.cardBottom}>
-                <Text style={styles.cardH3}>$180,00</Text>
-                <Text style={styles.cardH4}>Accra, Ghana</Text>
-              </View>
-
-            </View>
-         </View>
-
-         <View style={styles.featuredJobs}>
+         <View style={styles.PopularJobs}>
             <Text style={styles.h1}>Popular Jobs</Text>
             <TouchableOpacity style={styles.h2}>
               <Text style={styles.h2}>See all</Text>
             </TouchableOpacity>
         </View>
 
-        <View style={styles.cards2}>
-            <View style={styles.subCard2}>
-              <View style={styles.flexCard}>
-                <View>
-                <Image
-                style={styles.cardImage}
-                  source={require("../assets/burger.png")}
-                  />
-                </View>
+        <FlatList
+          data={dataa}
+          renderItem={({ item }) => (
+            <Cardp 
+              Role={item.Role}
+              Logo2={getLogo2Source(item.Comp)}
+              Comp={item.Comp} 
+              Paycheck={item.Paycheck}
+              Locat={item.Locat}
+            />
+          )}
+          keyExtractor={item => item.id.toString()} 
+          
+          showsVerticalScrollIndicator={false}
+          // contentContainerStyle={{ gap: 10, paddingHorizontal: 12 }}
+        />
 
-                <View style={styles.flexColumn}>
-
-                  <View style={styles.flexCard}>
-                   <Text style={styles.t2}>Jr Executive</Text>
-                   <Text style={styles.t1}> $96,000/y</Text>
-                  </View>
-
-                  <View style={styles.flexCard2}>
-                    <Text>Burger King</Text>
-                    <Text style={styles.t1}>                 Los Angels, US</Text>
-                  </View>
-
-                </View>
-
-              </View>
-              
-
-              
-
-            </View>
-         </View>
-
-
-
-        
 
       </View>
+      </ScrollView>
     </View>
   );
 }
@@ -120,16 +137,18 @@ container: {
     backgroundColor:'#FAFAFD',
     justifyContent: 'center',
     paddingLeft: 18,
-    paddingRight: 18,
-    paddingTop: 20
-    // alignItems: 'center',
+    // paddingRight: 18,
+    paddingTop: 20,
+    alignItems: 'center'
     },
 overview:{
     flex:1,
+    paddingTop:50
     
 },
 info:{
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingRight: 30,
 },
 text: {
     // textAlign: 'left', 
@@ -146,7 +165,8 @@ image:{
 },
 searchSection:{
     flexDirection: 'row',
-    paddingTop: 30
+    paddingTop: 30,
+    paddingRight: 30,
 },
 search:{
     flexDirection: 'row',
@@ -174,7 +194,13 @@ button: {
 },
 featuredJobs:{
     flexDirection: 'row',
-    paddingTop: 26
+    paddingTop: 26,
+    paddingRight: 30,
+},
+PopularJobs:{
+  flexDirection: 'row',
+  paddingTop: 26,
+  paddingRight: 30,
 },
 h1:{
     fontSize: 16,
@@ -189,7 +215,7 @@ cards:{
   alignItems: 'center',
   width: 280,
   height: 186,
-  backgroundColor: '#34A853',
+  backgroundColor: '#5386e4',
   borderRadius: 24,
 //   opacity:0.06
 },
@@ -242,6 +268,7 @@ cardH4:{
     fontWeight: '500'
 },
 cards2:{
+  marginTop:10,
   width: 327,
   height: 74,
   borderRadius: 20,
@@ -274,6 +301,12 @@ fontWeight: 'bold',
 fontSize: 16,
 color: '#0D0D26',
 },
+t3:{
+  fontWeight: 'bold',
+  fontSize: 14,
+  color: '#0D0D26',
+  marginLeft:'auto',
+  },
 t1:{
   marginLeft:'auto',
   color:'#0D0D26'

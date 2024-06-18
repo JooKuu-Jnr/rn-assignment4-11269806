@@ -1,0 +1,67 @@
+[
+{
+    "id":1,
+    "Logo2": "../assets/fb.png",
+    "Role": "Jr Executive",
+    "Paycheck": "$96,000/y",
+    "Comp": "Burger King",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":2,
+    "Logo2": "../assets/fb.png",
+    "Role": "HR Director",
+    "Paycheck": "$46,000/y",
+    "Comp": "Google Shop",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":3,
+    "Logo2": "../assets/fb.png",
+    "Role": "IT Manager",
+    "Paycheck": "$196,000/y",
+    "Comp": "Costco Mart",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":4,
+    "Logo2": "../assets/fb.png",
+    "Role": "VP Marketing",
+    "Paycheck": "$196,000/y",
+    "Comp": "Amazon Shop",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":5,
+    "Logo2": "../assets/fb.png",
+    "Role": "UX Designer",
+    "Paycheck": "$196,000/y",
+    "Comp": "Adidas Shop",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":6,
+    "Logo2": "../assets/fb.png",
+    "Role": "QA Engineer",
+    "Paycheck": "$196,000/y",
+    "Comp": "Target Shop",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":7,
+    "Logo2": "../assets/fb.png",
+    "Role": "PM Assistant",
+    "Paycheck": "$196,000/y",
+    "Comp": "Chicken Mart",
+    "Locat": "Los Angels, US"
+},
+{
+    "id":8,
+    "Logo2": "../assets/fb.png",
+    "Role": "HR Business",
+    "Paycheck": "$196,000/y",
+    "Comp": "Daddys Boba",
+    "Locat": "Los Angels, US"
+},
+   
+]

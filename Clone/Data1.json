@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "Logo": "../assets/fb.png",
+      "Profession": "Software Engineer",
+      "Company": "Facebook",
+      "Salary": "$180,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#5386E4"
+    },
+    {
+      "id": 2,
+      "Logo": "../assets/fb.png",
+      "Profession": "UI/UX Designer",
+      "Company": "Google",
+      "Salary": "$80,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#04284A"
+    },
+    {
+      "id": 3,
+      "Logo": "../assets/fb.png",
+      "Profession": "CyberSecurity Engineer",
+      "Company": "Facebook",
+      "Salary": "$200,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#5386E4"
+    },
+    {
+      "id": 4,
+      "Logo": "../assets/fb.png",
+      "Profession": "Network Architect",
+      "Company": "Microsoft",
+      "Salary": "$150,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#04284A"
+    },
+    {
+      "id": 5,
+      "Logo": "../assets/fb.png",
+      "Profession": "DevOps Engineer",
+      "Company": "Instagram",
+      "Salary": "$250,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#5386E4"
+    },
+    {
+      "id": 6,
+      "Logo": "../assets/fb.png",
+      "Profession": "Backend Developer",
+      "Company": "Tiktok",
+      "Salary": "$180,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#04284A"
+    },
+    {
+      "id": 7,
+      "Logo": "../assets/fb.png",
+      "Profession": "FrontEnd Dveloper",
+      "Company": "Google",
+      "Salary": "$100,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#5386E4"
+    },
+    {
+      "id": 8,
+      "Logo": "../assets/fb.png",
+      "Profession": "Data Scientist",
+      "Company": "Google",
+      "Salary": "$95,000",
+      "Address": "Accra-Ghana",
+      "backgroundColor": "#04284A"
+    }
+  ]
+
+  
+
+  
