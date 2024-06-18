@@ -1,141 +1,109 @@
-// HomePage.js
-import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, Image } from 'react-native';
+import React from 'react'
+import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import { TextInput } from 'react-native-gesture-handler';
 
-const HomePage = () => {
+const Homepage = ({route}) => {
+    const { username, email } = route.params;
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
 
         <View style={styles.overview}>
+            <View style={styles.info}>
+                <View>
+                <Text style={styles.text}>{username}</Text>
+                <Text style={styles.email}>{email}</Text>
+                </View>
 
-        <View style={styles.headerText}>
-        <Text style={styles.h1}>Jobizz</Text>
-        <Text style={styles.h2}>Welcome Back 👋</Text>
-        <Text style={styles.h3}>Let's log in. Apply to jobs!</Text>
+                <View style={styles.image}>
+                <Image source={require('../assets/Ellipse.png')}/>
+                </View>
+            </View>
 
-        <View style={styles.formSection}>
-            <TextInput style={styles.insert}
-            placeholder='Name'>
+            <View style={styles.searchSection}>
+                {/* <TouchableOpacity> */}
+                <View style={styles.search}>
+                <Image style={styles.icon} source={require('../assets/search.png')}/> 
+                    <TextInput
+                    placeholder="Search for a job or position">
+                     </TextInput>
+                </View>
+                {/* </TouchableOpacity> */}
+                
+                <View style={styles.filter}>
+                    <TouchableOpacity style={styles.button}>
+                        <Image source={require('../assets/filter.png')}/> 
+                    </TouchableOpacity>
+                </View>
+               
 
-            </TextInput>
+            </View>
 
-            <TextInput style={styles.insert}
-            placeholder='Email'>
-
-            </TextInput>
-
-            <TouchableOpacity
-            style={styles.button}>
-                <Text style={styles.buttonText}>Log in</Text>
-
-        </TouchableOpacity>
-
-       
-        <Text style={styles.line}> ───────  Or continue with  ───────</Text>
-       
-        
-        <View style={styles.icons}>
-            <TouchableOpacity style={styles.icons}>
-                <Image source={require('../assets/Apple.png')}/>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.icons}>
-            <Image source={require('../assets/google.png')}/>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.icons}>
-            <Image source={require('../assets/facebook.png')}/>
-            </TouchableOpacity>
+                
         </View>
+    </View>
 
-        <View style={styles.icons}>
-        <Text>Haven't an account?</Text>
-        <TouchableOpacity>
-            <Text style={styles.register}>Register</Text>
-        </TouchableOpacity>
-        </View>
+ 
+  )
+}
 
-        </View>
-
-        </View>
-
-
-        </View>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
+const styles= StyleSheet.create({
+container: {
     flex: 1,
     backgroundColor:'#FAFAFD',
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  overview:{
-    paddingLeft: 12,
-    paddingRight: 12,
-    
-  },
-  headerText:{
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 20
+    // alignItems: 'center',
+    },
+overview:{
     flex:1,
-    alignItems: 'flex-start',
-    marginTop: 106,
-  },
-  h1:{
-    fontSize:22,
-    color: '#356899',
-    fontWeight:'bold',
-  },
-  h2:{
-    marginTop: 10,
+},
+info:{
+    flexDirection: 'row'
+},
+text: {
+    // textAlign: 'left',
     fontSize: 24,
-    fontWeight: 'bold'
-
-  },
-  h3:{
-    marginTop: 10,
-    fontSize: 14,
-    color: '#0D0D26'
+    fontWeight: 'bold',
+    color: 'black'
 },
-  formSection:{
-    marginTop: 20
-
+email:{
+    fontSize: 20,
+    color: '#95969D'
 },
- insert:{
-    width: 327,
-    height: 52,
-    borderColor: '#AFB0B6',
-    borderWidth: 1,
-    borderRadius: 10,
-    marginTop: 20,
-    padding: 10
- },
- button:{
-    marginTop: 40,
-    width: 327,
-    height: 56,
-    backgroundColor: '#356899',
-    borderRadius: 5,
- },
-buttonText:{
-    paddingTop: 20,
-    textAlign:'center',
-    color: 'white',
-    fontSize: 16,
+image:{
+   marginLeft: 'auto',
 },
-
-line:{
-    marginTop: 40,
-    color: '#AFB0B6'
-},
-icons: {
-    marginTop:7,
+searchSection:{
     flexDirection: 'row',
-    justifyContent: 'center'
+    paddingTop: 30
 },
-register:{
-    color: '#356899'
+search:{
+    flexDirection: 'row',
+    backgroundColor: '#F2F2F3',
+    borderRadius: 12,
+    width: 263,
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+},
+icon: {
+    marginRight: 10
+},
+filter: {
+    width: 48,
+    height: 48,
+    backgroundColor: '#F2F2F3',
+    borderRadius: 12,
+    marginLeft: 'auto'
+},
+button: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
 }
 
-});
+})
 
-export default HomePage;
+export default Homepage
